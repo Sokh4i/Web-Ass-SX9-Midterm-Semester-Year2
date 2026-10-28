@@ -1,20 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Bootstrap CSS  -->
-     <!-- <link rel="stylesheet" href="assets/vendor/Bootstrap/css/bootstrap.css"> -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monthly Payment Schedule</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
-    
 
+    
+<div id="loginPage" class="card" style="max-width:340px">
+  <h2>Login</h2>
+  <label>Username</label><input id="user" autocomplete="username">
+  <label>Password</label><input id="pass" type="password" autocomplete="current-password">
+  <button id="loginBtn">Login</button>
+  <div class="err" id="loginErr"></div>
+</div>
 
-    <!-- Bootstrap JavaScript  -->
-    <!-- <script src="assets/vendor/Bootstrap/js/bootstrap.bundle.min.js"></script> -->
-     <script src="assets/JS/Script.js"></script>
+<!-- APP -->
+<div id="appPage" class="hidden">
+  <div class="card noprint" id="form">
+    <h2>Input Information</h2>
+    <div class="grid">
+      <div><label>Product</label><input id="product" value="18Pro Max"></div>
+      <div><label>Price</label><input id="price" type="number" step="any" value="1250"></div>
+      <div><label>Duration (months)</label><input id="duration" type="number" min="1" value="7"></div>
+      <div><label>Interest (%/month)</label><input id="rate" type="number" step="any" value="1.5"></div>
+      <div><label>Principal (down payment)</label><input id="down" type="number" step="any" value="0"></div>
+      <div><label>Date (DD-MM-YY)</label><input id="date" value="06-10-26" placeholder="DD-MM-YY"></div>
+    </div>
+    <button id="calcBtn">Calculate</button>
+    <button class="ghost" id="logoutBtn">Logout</button>
+    <div class="err" id="calcErr"></div>
+  </div>
+
+  <div class="card hidden" id="result">
+    <div class="head">
+      <div><h1>PAYMENT SCHEDULE</h1><div class="kh">តារាងបង់ប្រាក់ប្រចាំខែ</div></div>
+      <div class="dt" id="printed"></div>
+    </div>
+    <div class="info" id="info"></div>
+    <div class="wrap"><table>
+      <thead><tr><th>No</th><th>Date Paid</th><th>Principal</th><th>Interest</th><th>Total</th></tr></thead>
+      <tbody id="rows"></tbody>
+      <tfoot id="foot"></tfoot>
+    </table></div>
+    <div class="show" id="show"></div>
+    <button class="noprint" onclick="window.print()">Print</button>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<!-- <div id="loginPage" class="card" style="max-width:340px">
+  <h2>Login</h2>
+  <label>Username</label><input id="user" autocomplete="username">
+  <label>Password</label><input id="pass" type="password" autocomplete="current-password" onkeydown="checkEnter(event)">
+  <button onclick="login()">Login</button>
+  <div class="err" id="loginErr"></div>
+</div> -->
+
+<!-- APP -->
+<!-- <div id="appPage" class="hidden">
+  <div class="card noprint" id="form">
+    <h2>Input Information</h2>
+    <div class="grid">
+      <div><label>Product</label><input id="product" value="18Pro Max"></div>
+      <div><label>Price</label><input id="price" type="number" step="any" value="1250"></div>
+      <div><label>Duration (months)</label><input id="duration" type="number" min="1" value="7"></div>
+      <div><label>Interest (%/month)</label><input id="rate" type="number" step="any" value="1.5"></div>
+      <div><label>Principal (down payment)</label><input id="down" type="number" step="any" value="0"></div>
+      <div><label>Date</label><input id="date" type="date" value="2026-10-06"></div>
+    </div>
+    <button onclick="calculate()">Calculate</button>
+    <button class="ghost" onclick="logout()">Logout</button>
+    <div class="err" id="calcErr"></div>
+  </div>
+
+  <div class="card hidden" id="result">
+    <div class="head">
+      <div><h1>PAYMENT SCHEDULE</h1><div class="kh">តារាងបង់ប្រាក់ប្រចាំខែ</div></div>
+      <div class="dt" id="printed"></div>
+    </div>
+    <div class="info" id="info"></div>
+    <div class="wrap"><table>
+      <thead><tr><th>No</th><th>Date Paid</th><th>Principal</th><th>Interest</th><th>Total</th></tr></thead>
+      <tbody id="rows"></tbody>
+      <tfoot id="foot"></tfoot>
+    </table></div>
+    <div class="show" id="show"></div>
+    <button class="noprint" onclick="window.print()">Print</button>
+  </div>
+</div> -->
+
+  <script src="assets/JS/Script.js"></script>
 </body>
 </html>
